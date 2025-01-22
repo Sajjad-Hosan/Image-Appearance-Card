@@ -1,0 +1,123 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Quicksand", serif;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #222831;
+}
+.container {
+  /* width: 100%; */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.image_card {
+  position: relative;
+  display: flex;
+  width: 50rem;
+  height: 22rem;
+  border-radius: 1rem;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.output {
+  position: absolute;
+  right: 1rem;
+  bottom: 0.4rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  mix-blend-mode: overlay;
+  z-index: 1000;
+}
+.ori_card,
+.slide_card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.slide_card {
+  width: 100%;
+  clip-path: inset(0 80% 0 0);
+}
+.resize_bar {
+  position: absolute;
+  top: 0;
+  left: 20%;
+  width: 0.1rem;
+  height: 100%;
+  border-radius: 1rem;
+  background: orange;
+  behavior: initial;
+}
+.resize_bar::after {
+  content: "";
+  position: absolute;
+  top: 80%;
+  left: -15px;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: orange;
+  transition: all 100ms;
+  z-index: 1000;
+}
+.resize_bar:hover::after {
+  scale: 0.9;
+}
+
+.slide_card img,
+.ori_card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  user-select: none;
+  pointer-events: none;
+}
+.side_bar {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  border-radius: 1rem;
+}
+.side_bar .btn {
+  padding: 0.2rem 2rem;
+  border: none;
+  background: #333;
+  color: #fff;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 100ms ease;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+}
+.side_bar .btn:active {
+  scale: 0.9;
+}
+.side_bar select {
+  padding: 1rem 2rem;
+  border: none;
+  background: #333;
+  color: #fff;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 100ms ease;
+  -webkit-appearance: none; /* For Chrome, Safari, and newer browsers */
+  -moz-appearance: none; /* For Firefox */
+  appearance: none;
+  text-transform: capitalize;
+}

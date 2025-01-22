@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/brands.min.css"
+      integrity="sha512-58P9Hy7II0YeXLv+iFiLCv1rtLW47xmiRpC1oFafeKNShp8V5bKV/ciVtYqbk2YfxXQMt58DjNfkXFOn62xE+g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/fontawesome.min.css"
+      integrity="sha512-v8QQ0YQ3H4K6Ic3PJkym91KoeNT5S3PnDKvqnwqFD1oiqIl653crGZplPdU5KKtHjO0QKcQ2aUlQZYjHczkmGw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Image Appearance Card</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="image_card">
+        <span class="output">--</span>
+        <div class="ori_card">
+          <img src="./assets/image-1.jpg" alt="" id="image_1"/>
+        </div>
+        <div class="slide_card">
+          <img src="./assets/image-1.jpg" alt="" id="image_2"/>
+        </div>
+        <div class="resize_bar"></div>
+      </div>
+      <div class="side_bar">
+        <!-- <button class="btn">
+          <i class="fa-solid fa-palette"></i>Appearance
+        </button> -->
+        <label class="btn" for="image"> 
+          <input type="file" name="image" id="image" hidden>
+          <i class="fa-solid fa-upload"></i> Upload</label>
+        <select name="" id="image_appearance">
+          <option disabled>Chooses</option>
+          <option selected value="none">None</option>
+          <!-- <option value="0" selected class="change_1">Blur</option>
+          <option value="1" class="change_2">Brightness</option>
+          <option value="2" class="change_3">Contrast</option>
+          <option value="3" class="change_5">Drop Shadow</option>
+          <option value="4" class="change_4">Grayscale</option>
+          <option value="5" class="change_5">Hue Rotate</option>
+          <option value="6" class="change_5">Invert</option>
+          <option value="7" class="change_5">Opacity</option>
+          <option value="8" class="change_5">Saturate</option>
+          <option value="9" class="change_5">Sepia</option> -->
+        </select>
+        <!-- <button class="btn">
+          <i class="fa-solid fa-download"></i>
+          Download
+        </button>
+        <button class="btn">
+          <i class="fa-solid fa-share-nodes"></i>
+          Share
+        </button> -->
+      </div>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
