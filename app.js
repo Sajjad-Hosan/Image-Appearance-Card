@@ -6,6 +6,9 @@ const image1 = document.getElementById("image_1");
 const image2 = document.getElementById("image_2");
 const imageSelect = document.getElementById("image");
 const output = document.querySelector(".output");
+const rangeOutput = document.querySelector(".range_output");
+const downloadBtn = document.getElementById("download");
+const range = document.getElementById("range");
 
 let isResizing = false;
 const filterNames = [
@@ -37,6 +40,8 @@ filterNames.forEach((filter) => {
 });
 imageAppearance.addEventListener("change", (e) => {
   const value = parseInt(e.target.value);
+  let findVal = filterNames.find((f) => f.id === value);
+
   if (e.target.value === "none") {
     resizeBar.style.visibility = "hidden";
     slideCard.style.filter = "none";
@@ -44,13 +49,11 @@ imageAppearance.addEventListener("change", (e) => {
   }
   if (value === 3 || value === 5) {
     resizeBar.style.visibility = "visible";
-    const findVal = filterNames.find((f) => f.id === value);
     console.log(`${findVal.name}(${findVal.value})`);
     slideCard.style.filter = `${findVal.name}(${findVal.value})`;
     return;
   }
   resizeBar.style.visibility = "visible";
-  const findVal = filterNames.find((f) => f.id === value);
   slideCard.style.filter = `${findVal.name}(${findVal.value}${findVal.sign})`;
 });
 resizeBar.addEventListener("mousedown", (e) => {
@@ -80,3 +83,24 @@ resizeBar.addEventListener("mouseleave", (e) => {
   isResizing = false;
   document.body.style.cursor = "default";
 });
+
+downloadBtn.addEventListener("click", (e) => {
+  const canvas = document.createElement("canvas");
+  const ctx = canvas.getContext("2d");
+  const img = image2;
+
+  canvas.width = img.width;
+  canvas.height = img.height;
+
+  const computedStyle = getComputedStyle(slideCard);
+  const filter = computedStyle.filter || "none";
+  ctx.filter = filter;
+
+  ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+  const link = document.createElement("a");
+  link.download = "edited-image.png";
+  link.href = canvas.toDataURL();
+  link.click();
+});
+
